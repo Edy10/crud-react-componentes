@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.titulo {
+  color: #222;
+  margin-bottom: 25px;
+}
+
+.formulario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  font-weight: bold;
+}
+
+.formulario input {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.formulario input:focus {
+  outline: 2px solid #2866c7;
+  border-color: transparent;
+}
+
+.botao {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #2866c7;
+}
+
+.botao:hover {
+  opacity: 0.85;
+}
+
+.botao-editar {
+  background-color: #d88400;
+  margin-right: 8px;
+}
+
+.botao-excluir {
+  background-color: #c52b2b;
+}
+
+.tabela {
+  width: 500px;
+  max-width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.tabela th,
+.tabela td {
+  border: 1px solid #aaa;
+  padding: 10px;
+}
+
+.tabela td {
+  color: #222;
+}
+
+.tabela th {
+  background-color: #e8edf3;
+  color: #222;
+}
+
+.tabela-titulo {
+  margin: 0;
+}
