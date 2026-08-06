@@ -1,8 +1,48 @@
-# React + Vite
+# CRUD de Pessoas com React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido para praticar os fundamentos do React por meio de um CRUD de pessoas.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Cadastrar pessoas
+- Listar pessoas cadastradas
+- Editar nome e e-mail
+- Excluir pessoas
+- Confirmar antes da exclusão
+- Cancelar edição
+- Impedir cadastro de e-mails duplicados
+- Salvar os dados no navegador com localStorage
+
+## Tecnologias utilizadas
+
+- React
+- Vite
+- JavaScript
+- CSS
+- localStorage
+
+## Conceitos praticados
+
+- useState
+- useEffect
+- Props
+- Componentes
+- Formulários controlados
+- Renderização condicional
+- map
+- filter
+- some
+- Eventos
+- Organização de componentes
+
+## Estrutura do projeto
+
+```text
+src/
+├── components/
+│   ├── FormularioPessoa.jsx
+│   └── TabelaPessoas.jsx
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
