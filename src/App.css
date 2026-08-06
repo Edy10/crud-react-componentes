@@ -28,6 +28,13 @@ body {
   margin-bottom: 20px;
 }
 
+.campo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 5px;
+}
+
 .formulario label {
   font-weight: bold;
 }
@@ -64,6 +71,10 @@ body {
 
 .botao-excluir {
   background-color: #c52b2b;
+}
+
+.botao-cancelar {
+  background-color: #666;
 }
 
 .tabela {
