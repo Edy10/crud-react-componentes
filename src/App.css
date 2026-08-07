@@ -35,6 +35,20 @@ body {
   gap: 5px;
 }
 
+.busca-container {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.busca-container input {
+  width: 250px;
+  padding: 8px;
+
+}
+
 .formulario label {
   font-weight: bold;
 }

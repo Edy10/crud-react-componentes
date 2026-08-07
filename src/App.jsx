@@ -6,23 +6,32 @@ import TabelaPessoas from "./components/TabelaPessoas";
 function App() {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
+    const [telefone, setTelefone] = useState("");
     const [pessoas, setPessoas] = useState(() => {
         const pessoasSalvas = localStorage.getItem("pessoas");
 
         return pessoasSalvas ? JSON.parse(pessoasSalvas) : [];
     });
     const [idEditando, setIdEditando] = useState(null);
+    const [busca, setBusca] = useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem("pessoas", JSON.stringify(pessoas));
     }, [pessoas]);
 
     function salvar(event) {
         event.preventDefault();
 
-        if(nome.trim() === "" || email.trim() === ""){
-            alert("Digite o nome e o E-mail.");
+        if(nome.trim() === "" || email.trim() === "" || telefone.trim() === ""){
+            alert("Preencha nome, E-mail e telefone.");
             return;
+        }
+
+        const telefoneValido = telefone.replace(/\D/g, "");
+
+        if(telefoneValido.length < 11 || telefoneValido.length > 11){
+           alert("Digite um telefone válido com DDD.");
+           return;
         }
 
         const emailJaExiste = pessoas.some((pessoa) => {
@@ -37,12 +46,13 @@ function App() {
         }
 
         if(idEditando !== null){
-            const  listaAtualizada = pessoas.map((pessoa)=>{
+            const  listaAtualizada = pessoas.map((pessoa) => {
                 if(pessoa.id === idEditando){
                     return {
                         ...pessoa,
                         nome: nome,
                         email: email,
+                        telefone: telefone,
                     };
                 }
                 return pessoa;
@@ -55,6 +65,7 @@ function App() {
                 id: Date.now(),
                 nome: nome,
                 email: email,
+                telefone: telefone,
             };
 
             setPessoas([...pessoas, novaPessoa]);
@@ -62,11 +73,13 @@ function App() {
 
         setNome("");
         setEmail("");
+        setTelefone("");
     }
 
     function editar(pessoa){
         setNome(pessoa.nome);
         setEmail(pessoa.email);
+        setTelefone(pessoa.telefone);
         setIdEditando(pessoa.id);
     }
 
@@ -78,7 +91,7 @@ function App() {
         }
 
         const novaLista = pessoas.filter(
-            (pessoa)=> pessoa.id !== id
+            (pessoa) => pessoa.id !== id
         );
         setPessoas(novaLista);
 
@@ -90,8 +103,19 @@ function App() {
     function cancelarEdicao() {
         setNome("");
         setEmail("");
+        setTelefone("");
         setIdEditando(null);
     }
+
+    const pessoasFiltradas = pessoas.filter((pessoa)  => {
+        const  textoBusca = busca.toLowerCase();
+
+        return (
+          pessoa.nome.toLowerCase().includes(textoBusca) ||
+          pessoa.email.toLowerCase().includes(textoBusca) ||
+          pessoa.telefone.includes(busca)
+        );
+    });
 
     return (
         <div className="container">
@@ -102,13 +126,27 @@ function App() {
                 setNome={setNome}
                 email={email}
                 setEmail={setEmail}
+                telefone={telefone}
+                setTelefone={setTelefone}
                 salvar={salvar}
                 idEditando={idEditando}
                 cancelarEdicao={cancelarEdicao}
             />
 
+            {pessoasFiltradas.length > 0 && (
+                <div className="busca-container">
+                    <input
+                        type="text"
+                        value={busca}
+                        onChange={(event) => setBusca(event.target.value)}
+                        placeholder="Buscar por nome ou e-mail"
+                    />
+                </div>
+            )}
+
+
             <TabelaPessoas
-                pessoas={pessoas}
+                pessoas={pessoasFiltradas}
                 editar={editar}
                 excluir={excluir}
             />

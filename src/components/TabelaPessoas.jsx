@@ -7,7 +7,7 @@ function TabelaPessoas({pessoas, editar, excluir}){
         <table className="tabela">
             <thead>
             <tr>
-                <th colSpan={3}>
+                <th colSpan={4}>
                     <h2>Pessoas Cadastradas</h2>
                 </th>
             </tr>
@@ -15,6 +15,7 @@ function TabelaPessoas({pessoas, editar, excluir}){
                 <th> Ação </th>
                 <th> Nome </th>
                 <th> E-mail </th>
+                <th> Telefone </th>
             </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@ function TabelaPessoas({pessoas, editar, excluir}){
 
                     <td> {pessoa.nome} </td>
                     <td> {pessoa.email} </td>
+                    <td> {pessoa.telefone }</td>
                 </tr>
             ))}
             </tbody>

@@ -1,4 +1,4 @@
-function  FormularioPessoa({nome, setNome, email, setEmail, salvar, idEditando, cancelarEdicao}){
+function  FormularioPessoa({nome, setNome, email, setEmail, telefone, setTelefone, salvar, idEditando, cancelarEdicao}){
    return (
        <form className="formulario" onSubmit={salvar}>
            <div className="campo">
@@ -20,6 +20,17 @@ function  FormularioPessoa({nome, setNome, email, setEmail, salvar, idEditando, 
                    value={email}
                    onChange={(event) => setEmail(event.target.value)}
                    placeholder="Digite o e-mail"
+               />
+           </div>
+
+           <div className="campo">
+               <label htmlFor={telefone}>Telefone: </label>
+               <input
+                   id="telefone"
+                   type="text"
+                   value={telefone}
+                   onChange={(event) => setTelefone(event.target.value)}
+                   placeholder="Digite o telefone"
                />
            </div>
 
