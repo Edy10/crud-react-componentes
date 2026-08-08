@@ -133,7 +133,7 @@ function App() {
                 cancelarEdicao={cancelarEdicao}
             />
 
-            {pessoasFiltradas.length > 0 && (
+            {pessoas.length > 0 && (
                 <div className="busca-container">
                     <input
                         type="text"
@@ -144,12 +144,16 @@ function App() {
                 </div>
             )}
 
+            {pessoas.length > 0 && pessoasFiltradas.length == 0 ? (
+                <p> Nenhuma pessoa encontrada </p>
+            ) : (
+                <TabelaPessoas
+                    pessoas={pessoasFiltradas}
+                    editar={editar}
+                    excluir={excluir}
+                />
+            )}
 
-            <TabelaPessoas
-                pessoas={pessoasFiltradas}
-                editar={editar}
-                excluir={excluir}
-            />
         </div>
     );
 }
