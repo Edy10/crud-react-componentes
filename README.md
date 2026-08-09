@@ -84,13 +84,13 @@ npm -v
 Clone o projeto:
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/Edy10/crud-react.git
 ```
 
 Entre na pasta:
 
 ```bash
-cd NOME_DO_PROJETO
+cd crud-react
 ```
 
 Instale as dependências:

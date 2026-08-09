@@ -7,17 +7,17 @@ function App() {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [telefone, setTelefone] = useState("");
-    const [pessoas, setPessoas] = useState(() => {
-        const pessoasSalvas = localStorage.getItem("pessoas");
-
-        return pessoasSalvas ? JSON.parse(pessoasSalvas) : [];
-    });
+    const [pessoas, setPessoas] = useState([])
     const [idEditando, setIdEditando] = useState(null);
     const [busca, setBusca] = useState("");
 
     useEffect(() => {
-        localStorage.setItem("pessoas", JSON.stringify(pessoas));
-    }, [pessoas]);
+        fetch("http://localhost:3000/pessoas")
+            .then((resposta) => resposta.json())
+            .then((dados) => {
+                setPessoas(dados);
+            });
+    }, [])
 
     function salvar(event) {
         event.preventDefault();
