@@ -1,0 +1,30 @@
+{
+  "name": "crud-react",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido para praticar os fundamentos do React através de um CRUD de pessoas.",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edy10/crud-react-componentes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edy10/crud-react-componentes/issues"
+  },
+  "homepage": "https://github.com/Edy10/crud-react-componentes#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^4.5.14"
+  }
+}
